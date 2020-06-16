@@ -10,7 +10,7 @@ export const validate = async (req, res, next) => {
     const decrypt = jwt.verify(token, process.env.TOKEN_SECRET);
     // confirm client is authorized to request this users resources
     if (req.params.userId !== decrypt.id) {
-      res.status(403).json({error: 'You do not have permission to do that'})
+      res.status(403).json({error: 'You do not have permission to do that'});
     }
     // add users google id to the request and proceed
     req.user = {
