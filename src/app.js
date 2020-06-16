@@ -22,6 +22,6 @@ app.use('/user', notes);
 app.use('/auth', auth);
 
 // start the server
-app.listen( port, () => {
+app.listen( process.env.SERVER_PORT, () => {
   console.log(`server started at http://localhost:${process.env.SERVER_PORT}`);
 });
