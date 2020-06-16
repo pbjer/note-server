@@ -27,7 +27,7 @@ auth.get('/google/callback',
       secure: false,
       httpOnly: false,
     })
-    res.redirect(`${process.env.CLIENT_URL}/auth-callback`);
+    res.redirect(`${process.env.CLIENT_URL}/notes`);
   });
 
 export default auth;
