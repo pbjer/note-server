@@ -38,9 +38,10 @@ notes.get('/:userId/note/:id', validate, async(req, res) => {
 })
 
 notes.get('/:userId', validate, async(req, res) => {
+  const { userId } = req.params;
   let response = null;
   try {
-    response = await pool.query(q.getAllNotes(req.query), [ google_id ]);
+    response = await pool.query(q.getAllNotes(req.query), [ userId ]);
     res.status(200).json(response.rows);
   } catch(e) {
     console.log(e, 'Error getting notes');
