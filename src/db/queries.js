@@ -28,7 +28,7 @@ const updateNote = `
 
 const deleteNote = `
   DELETE FROM notes
-  WHERE id = $1
+  WHERE google_user_id = $1 AND id = $2
 `;
 
 export {
