@@ -5,8 +5,11 @@ export const validateToken = async (req, res, next) => {
   try {
     // confirm token is present
     if (!token) {
-      return res.status(401).json('You need to Login');
+      return res.status(401).json({ error: 'You need to Login' });
     }
+    // jwt.very will throw an error if there are any issues with
+    // the token, we are most concerned with providing feedback
+    // for the scenario least likely to be malicious - expiration.
     const decrypt = jwt.verify(token, process.env.TOKEN_SECRET);
     // confirm client is authorized to request this users resources
     if (req.params.userId !== decrypt.id) {
@@ -18,6 +21,10 @@ export const validateToken = async (req, res, next) => {
     };
     next();
   } catch (e) {
+    // https://github.com/auth0/node-jsonwebtoken#tokenexpirederror
+    if (e.name === 'TokenExpiredError') {
+      return res.status(401).json({ error: 'Token is expired' });
+    }
     return res.status(500).json(e.toString());
   }
 };
