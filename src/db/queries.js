@@ -5,7 +5,7 @@ const insertNote = `
 
 const getAllNotes = (options) => {
   const limit = parseInt(options.limit) ? options.limit.toString() : 'ALL'
-  const order = options.order === 'ASC' ? 'ASC' : 'DESC'
+  const order = options.order === 'asc' ? 'ASC' : 'DESC'
   const start = parseInt(options.start) ? options.start.toString() : '0'
   return `
     SELECT * FROM notes WHERE google_user_id = $1
