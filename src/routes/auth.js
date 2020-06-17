@@ -6,7 +6,7 @@ import '../utils/auth';
 const auth = express.Router();
 
 auth.get('/google',
-  passport.authenticate('google',{ scope:[
+  passport.authenticate('google', { scope: [
     'https://www.googleapis.com/auth/userinfo.profile',
     'https://www.googleapis.com/auth/userinfo.email'
   ]}));
@@ -26,7 +26,7 @@ auth.get('/google/callback',
       expires: new Date(Date.now() + expiration),
       secure: false,
       httpOnly: false,
-    })
+    });
     res.redirect(`${process.env.CLIENT_URL}/notes`);
   });
 

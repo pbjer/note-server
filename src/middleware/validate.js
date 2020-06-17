@@ -5,7 +5,7 @@ export const validate = async (req, res, next) => {
   try {
     // confirm token is present
     if (!token) {
-      return res.status(401).json('You need to Login')
+      return res.status(401).json('You need to Login');
     }
     const decrypt = jwt.verify(token, process.env.TOKEN_SECRET);
     // confirm client is authorized to request this users resources
