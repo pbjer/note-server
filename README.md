@@ -9,7 +9,7 @@ Create the database by running
 ```sql
 CREATE DATABASE note_service;
 CREATE USER note_user WITH PASSWORD 'password';
-GRANT ALL PRIVILEGES ON DATABSE note_service TO note_user;
+GRANT ALL PRIVILEGES ON DATABASE note_service TO note_user;
 ```
 
 ## Install dependencies
