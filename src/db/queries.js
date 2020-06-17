@@ -8,7 +8,9 @@ const getAllNotes = (options) => {
   const order = options.order === 'asc' ? 'ASC' : 'DESC'
   const start = parseInt(options.start) ? options.start.toString() : '0'
   return `
-    SELECT * FROM notes WHERE google_user_id = $1
+    SELECT *, count(*) OVER() AS full_count
+      FROM notes
+      WHERE google_user_id = $1
       ORDER BY notes.created_at ${order}
       LIMIT ${limit}
       OFFSET ${start}
