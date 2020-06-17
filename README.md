@@ -4,7 +4,7 @@ This express app has the following features:
 
 - Oauth signin with Google
 - Create, read, update, and delete your notes
-- Optional query parameters to sort and filter notes `
+- Optional query parameters to sort and filter notes
 
 
 # Routes
