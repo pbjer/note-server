@@ -12,9 +12,9 @@ This express app has the following features:
 `GET /:userId`
 - Returns all notes for a given `userId`
 - Accepts optional query parameters:
-  - `$start=<number>` returns notes starting from `number`
-  - `$limit=<number>` returns first `number` notes from query
-  - `$order=asc` or `$order=desc` returns notes in ascending or descending order by time created (defaults to `desc`)
+  - `start=<number>` returns notes starting from `number`
+  - `limit=<number>` returns first `number` notes from query
+  - `order=asc` or `$order=desc` returns notes in ascending or descending order by time created (defaults to `desc`)
 
 `GET /:userId/note/:id`
 - Returns note for `userId` where note id is `id`
