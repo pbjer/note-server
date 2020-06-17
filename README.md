@@ -1,16 +1,55 @@
 # Note Server
 
-## Download and install Postgres
+This express app has the following features:
+
+- Oauth signin with Google
+- Create, read, update, and delete your notes
+- Optional query parameters to sort and filter notes `
+
+# Routes
+### Notes
+`GET /:userId`
+- Returns all notes for a given `userId`
+- Accepts optional query parameters:
+  - `$start=<number>` returns notes starting from `number`
+  - `$limit=<number>` returns first `number` rows from query
+  - `$offset=<number>` returns rows starting from `number`
+
+`GET /:userId/note/:id`
+- Returns note for `userId` where note id is `id`
+
+`POST /:userId/note`
+- Created note for `userId`
+- Requires object payload in format `{ title: 'Title', body: 'Body'  }`
+
+`PUT /:userId/note/:id`
+- Update note for `userId` where note id is `id`
+- Requires object payload in format `{ title: 'Title', body: 'Body'  }`
+
+`DELETE /:userId/note/:id`
+- Delete note for `userId` where note id is `id`
+
+## Download and install Postgres (Mac)
 `brew install postgresql` https://formulae.brew.sh/formula/postgresql
 
-## Create the database
-Once postgres is isntalled and running, get into the shell by runnin psql postgres
+## Create the database for development
+Once postgres is installed and running, get into the shell by running `psql postgres`
 Create the database by running
 ```sql
 CREATE DATABASE note_service;
 CREATE USER note_user WITH PASSWORD 'password';
 GRANT ALL PRIVILEGES ON DATABASE note_service TO note_user;
 ```
+
+## Generate Google Client Id and Client Secret
+https://developers.google.com/identity/sign-in/web/sign-in#create_authorization_credentials
+- When creating your credeintials, make sure to add `http://localhost:3030/auth/google/callback` as an Authorized redirect URI
+
+## Create environment variables
+This app users dotenv to configure its environment
+https://www.npmjs.com/package/dotenv
+
+Create a new `.env` at the root of the project based of `example.env` (provided)
 
 ## Install dependencies
 `yarn install`
