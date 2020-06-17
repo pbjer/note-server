@@ -4,7 +4,7 @@ const insertNote = `
 `;
 
 const getAllNotes = (options) => {
-  const limit = parseInt(options.limit) ? options.limit.toString() : 'ALL'
+  const limit = parseInt(options.limit) >= 0 ? options.limit.toString() : 'ALL'
   const order = options.order === 'asc' ? 'ASC' : 'DESC'
   const start = parseInt(options.start) ? options.start.toString() : '0'
   return `
