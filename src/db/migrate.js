@@ -38,11 +38,14 @@ const creationQueries = [
 ];
 
 ;(async () => {
-  // note: we don't try/catch this because if connecting throws an exception
-  // we don't need to dispose of the client (it will be undefined)
+  // note: we don't try/catch this because if connecting
+  // throws an exception we don't need to dispose of the
+  // client (it will be undefined)
   const client = await pool.connect();
 
   try {
+    // wrap table creation transaction since
+    // it depends on multiple queries
     await client.query('BEGIN')
     for (const q of creationQueries) {
       await client.query(q);
