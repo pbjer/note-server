@@ -29,6 +29,7 @@ This express app has the following features:
 `DELETE /:userId/note/:id`
 - Delete note for `userId` where note id is `id`
 
+# Setting up the dev environment
 ## Download and install Postgres (Mac)
 `brew install postgresql` https://formulae.brew.sh/formula/postgresql
 
