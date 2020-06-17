@@ -2,7 +2,7 @@
 
 This express app has the following features:
 
-- Oauth signin with Google
+- OAuth signin with Google
 - Create, read, update, and delete your notes
 - Optional query parameters to sort and filter notes
 
@@ -14,18 +14,18 @@ This express app has the following features:
 - Accepts optional query parameters:
   - `$start=<number>` returns notes starting from `number`
   - `$limit=<number>` returns first `number` rows from query
-  - `$offset=<number>` returns rows starting from `number`
+  - `$order=asc` or `$order=desc` returns rows starting from `number` (defaults to `desc`)
 
 `GET /:userId/note/:id`
 - Returns note for `userId` where note id is `id`
 
 `POST /:userId/note`
 - Created note for `userId`
-- Requires object payload in format `{ title: 'Title', body: 'Body'  }`
+- Requires request body in format `{ title: 'Title', body: 'Body'  }`
 
 `PUT /:userId/note/:id`
 - Update note for `userId` where note id is `id`
-- Requires object payload in format `{ title: 'Title', body: 'Body'  }`
+- Requires request body in format `{ title: 'Title', body: 'Body'  }`
 
 `DELETE /:userId/note/:id`
 - Delete note for `userId` where note id is `id`
@@ -46,7 +46,7 @@ GRANT ALL PRIVILEGES ON DATABASE note_service TO note_user;
 
 ## Generate Google Client Id and Client Secret
 https://developers.google.com/identity/sign-in/web/sign-in#create_authorization_credentials
-- When creating your credeintials, make sure to add `http://localhost:3030/auth/google/callback` as an Authorized redirect URI
+- When creating your credentials, make sure to add `http://localhost:3030/auth/google/callback` as an Authorized redirect URI
 
 ## Create environment variables
 This app users dotenv to configure its environment
