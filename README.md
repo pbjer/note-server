@@ -6,6 +6,7 @@ This express app has the following features:
 - Create, read, update, and delete your notes
 - Optional query parameters to sort and filter notes `
 
+
 # Routes
 ### Notes
 `GET /:userId`
@@ -28,6 +29,7 @@ This express app has the following features:
 
 `DELETE /:userId/note/:id`
 - Delete note for `userId` where note id is `id`
+
 
 # Setting up the dev environment
 ## Download and install Postgres (Mac)
