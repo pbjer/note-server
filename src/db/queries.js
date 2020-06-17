@@ -1,8 +1,8 @@
 const getAllNotes = (options) => {
   // provide some basic sanitization for client provided values
-  const limit = parseInt(options.limit) >= 0 ? options.limit.toString() : 'ALL'
-  const order = options.order === 'asc' ? 'ASC' : 'DESC'
-  const start = parseInt(options.start) >= 0 ? options.start.toString() : '0'
+  const limit = parseInt(options.limit) >= 0 ? options.limit.toString() : 'ALL';
+  const order = options.order === 'asc' ? 'ASC' : 'DESC';
+  const start = parseInt(options.start) >= 0 ? options.start.toString() : '0';
   return `
     SELECT *, count(*) OVER() AS full_count
       FROM notes
