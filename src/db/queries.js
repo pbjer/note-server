@@ -3,6 +3,10 @@ const getAllNotes = (options) => {
   const limit = parseInt(options.limit) >= 0 ? options.limit.toString() : 'ALL';
   const order = options.order === 'asc' ? 'ASC' : 'DESC';
   const start = parseInt(options.start) >= 0 ? options.start.toString() : '0';
+  // I'm using count(), LIMIT, and OFFSET here for simplicity,
+  // in a production environment where speed and scalability
+  // were more important, it would be worthwhile to use a
+  // different query method. https://use-the-index-luke.com/no-offset
   return `
     SELECT *, count(*) OVER() AS full_count
       FROM notes
