@@ -36,13 +36,6 @@ notes.get('/:userId/note/:id',
     const { userId, id } = req.params;
     try {
       const response = await pool.query(q.getOneNote, [ userId, id ]);
-      if (response.rows.length === 0) {
-        res.status(404).json({
-          error: `'Note not found'`,
-          userId,
-          id
-        });
-      }
       res.status(200).json(response.rows[0]);
     } catch(e) {
       console.log(e, 'Error getting note');
@@ -72,14 +65,7 @@ notes.put('/:userId/note/:id',
     const values = [ title, body, userId, id ];
     try {
       const response = await pool.query(q.updateNote, values);
-      if (response.rows.length === 0) {
-        res.status(404).json({
-          error: `'Note not found'`,
-          userId,
-          id
-        });
-      }
-      res.json({
+      res.status(200).json({
         id: values[2],
         title: values[0],
         body: values[1]

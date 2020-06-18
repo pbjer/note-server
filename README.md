@@ -49,10 +49,10 @@ https://developers.google.com/identity/sign-in/web/sign-in#create_authorization_
 - When creating your credentials, make sure to add `http://localhost:3030/auth/google/callback` as an Authorized redirect URI
 
 ## Create environment variables
-This app users dotenv to configure its environment
+This app uses dotenv to configure its environment
 https://www.npmjs.com/package/dotenv
 
-Create a new `.env` at the root of the project based of `example.env` (provided)
+Create a new `.env` at the root of the project based off `example.env` (provided)
 
 ## Install dependencies
 `yarn install`

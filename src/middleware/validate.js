@@ -35,7 +35,7 @@ export const validateReqBody = async (req, res, next) => {
     if (!title || !body) {
       return res.status(422).json({ error: 'Title and body must be present' });
     }
-    if (title === '' || body === '') {
+    else if (title === '' || body === '') {
       return res.status(422).json({ error: 'Title and body can not be empty' });
     }
     next();
