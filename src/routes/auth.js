@@ -19,12 +19,12 @@ auth.get('/google/callback',
     const token = jwt.sign(
       { id },
       `${process.env.TOKEN_SECRET}`,
-      { expiresIn: `${process.env.TOKEN_EXP}`
-    });
+      { expiresIn: `${process.env.TOKEN_EXP}` }
+    );
 
     res.cookie('token', token, {
       expires: new Date(Date.now() + expiration),
-      secure: false,
+      secure: process.env.COOKIE_SECURE,
       httpOnly: false,
     });
     res.redirect(`${process.env.CLIENT_URL}/notes`);
