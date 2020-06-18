@@ -73,6 +73,3 @@ Create a new `.env` at the root of the project based off `example.env` (provided
 
 ## Start development server with hot reload
 `yarn start`
-
-## Build for production
-`yarn build`
