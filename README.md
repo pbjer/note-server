@@ -10,24 +10,35 @@ This express app has the following features:
 # Routes
 ### Notes
 `GET /:userId`
+
 - Returns all notes for a given `userId`
+
 - Accepts optional query parameters:
+
   - `start=<number>` returns notes starting from `number`
+
   - `limit=<number>` returns first `number` notes from query
+
   - `order=asc` or `$order=desc` returns notes in ascending or descending order by time created (defaults to `desc`)
 
 `GET /:userId/note/:id`
+
 - Returns note for `userId` where note id is `id`
 
 `POST /:userId/note`
+
 - Created note for `userId`
+
 - Requires request body in format `{ title: 'Title', body: 'Body'  }`
 
 `PUT /:userId/note/:id`
+
 - Update note for `userId` where note id is `id`
+
 - Requires request body in format `{ title: 'Title', body: 'Body'  }`
 
 `DELETE /:userId/note/:id`
+
 - Delete note for `userId` where note id is `id`
 
 
